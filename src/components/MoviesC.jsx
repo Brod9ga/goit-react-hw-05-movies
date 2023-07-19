@@ -28,7 +28,7 @@ export const MoviesC = () => {
     
     const fetchFilm = async () => {
       try {
-        const response = await fetchMovieAtWord(word);
+        const response = await fetchMovieAtWord(searchTerm);
         setMovies(response.results);
         console.log(searchTerm)
         
@@ -36,6 +36,7 @@ export const MoviesC = () => {
         console.error(error);
       }
     };
+    
     fetchFilm()
 }
 
