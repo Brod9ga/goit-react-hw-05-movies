@@ -18,14 +18,19 @@ useEffect(() => {
 
 getCast();
 }, [filmId]);
-
+// const image = cast.profile_path
+//     ? `https://image.tmdb.org/t/p/original${cast.profile_path}`
+//     : 'https://www.tgv.com.my/assets/images/404/movie-poster.jpg';
 
   return (
     <div>
         <ul>
             {filmCast.map((cast, index)=>
             <li key={index}>
-<img  src={`https://image.tmdb.org/t/p/original${cast.profile_path}`} alt="" height={'120px'}/>
+           
+<img  src={cast.profile_path
+    ? `https://image.tmdb.org/t/p/original${cast.profile_path}`
+    : 'https://www.tgv.com.my/assets/images/404/movie-poster.jpg'} alt="" height={'120px'}/>
 <p>{cast.name}</p>
 <p>Character {cast.character}</p>
             </li>)}

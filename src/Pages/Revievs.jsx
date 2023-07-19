@@ -20,11 +20,12 @@ getListRevievs();
 }, [filmId]);
 
 
-// const {profile_path ,name, character}=filmCast
   return (
     <div>
         <ul>
-            {revievList.map((reviev,index)=><li key={index}>
+          
+            {revievList.map((reviev,index)=>
+            <li key={index}>
                 <h3>{reviev.author}</h3>
                 <p>{reviev.content}</p>
             </li>)}
