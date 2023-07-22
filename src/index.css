@@ -16,3 +16,8 @@ code {
 .filmItem{
   display: block;
 }
+.active{
+  color: red;
+  font-size: larger;
+  border: 3px;
+}
