@@ -1,5 +1,5 @@
 import { fetchFilmDetails } from 'components/fetches';
-import React, { lazy, useEffect, useRef, useState } from 'react';
+import React, { Suspense, lazy, useEffect, useRef, useState } from 'react';
 import { useParams, Link, Routes, Route, useLocation } from 'react-router-dom';
 // import { Cast } from './Cast';
 // import { Revievs } from './Revievs';
@@ -55,10 +55,13 @@ const backFrom = useRef(location.state?.from ??'/');
         <ul>
           
         </ul>
+        <Suspense>
         <Routes>
           <Route path='cast' element={<Cast/>}>cast</Route>
           <Route path='revievs' element={<Revievs/>}>revievs</Route>
         </Routes>
+        </Suspense>
+        
       </div>
     )
   );
