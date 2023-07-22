@@ -3,10 +3,11 @@ import React from 'react'
 
 
 
-export const Movies = () => {
+ const Movies = () => {
   return (
     <div>
         <MoviesC/>
     </div>
   )
 }
+export default Movies

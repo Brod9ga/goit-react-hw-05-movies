@@ -2,7 +2,7 @@ import { fetchRevievs } from 'components/fetches'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
-export const Revievs = () => {
+ const Revievs = () => {
 const {filmId}=useParams()
 const [revievList, setRevievList]=useState([])
 
@@ -34,3 +34,4 @@ getListRevievs();
     </div>
   )
 }
+export default Revievs

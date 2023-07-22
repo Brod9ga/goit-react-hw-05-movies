@@ -1,10 +1,10 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 export const FilmTrendDay = () => {
   const [films, setFilms] = useState([]);
-
+const location = useLocation()
   useEffect(() => {
     const getFilmsDay = async () => {
       const options = {
@@ -37,7 +37,7 @@ export const FilmTrendDay = () => {
       <ul>
         {films.map((film, index) => {
           return (
-            <Link className="filmItem" key={film.id} to={`/ditails/${film.id}`} >
+            <Link state={{from:location}} className="filmItem" key={film.id} to={`/ditails/${film.id}`}>
               {film.title}
             </Link>
           );

@@ -1,12 +1,17 @@
 import { fetchFilmDetails } from 'components/fetches';
-import React, { useEffect, useState } from 'react';
-import { useParams, Link, Routes, Route } from 'react-router-dom';
-import { Cast } from './Cast';
-import { Revievs } from './Revievs';
+import React, { lazy, useEffect, useRef, useState } from 'react';
+import { useParams, Link, Routes, Route, useLocation } from 'react-router-dom';
+// import { Cast } from './Cast';
+// import { Revievs } from './Revievs';
+const Cast = lazy(()=>import('./Cast'))
+const Revievs = lazy(()=>import('./Revievs'))
 
 export const FilmDitails = () => {
   const { filmId } = useParams();
   const [filmDetails, setFilmDetails] = useState(null);
+const location = useLocation()
+const backFrom = useRef(location.state?.from ??'/');
+
 
   useEffect(() => {
     const fetchDetails = async () => {
@@ -22,8 +27,11 @@ export const FilmDitails = () => {
   }, [filmId]);
 
   return (
+    
+    
     filmDetails && (
       <div>
+        <Link to ={backFrom.current} >Back</Link>
         <img
           src={`https://image.tmdb.org/t/p/original${filmDetails.backdrop_path}`}
           alt=""
